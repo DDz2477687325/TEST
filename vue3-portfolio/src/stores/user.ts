@@ -4,7 +4,7 @@ import { defineStore } from 'pinia'
 export const useUserStore = defineStore('user', () => {
   // 用户信息数据
   const userInfo = ref({
-    name: '朱贵龙',  // 请修改为您的真实姓名
+    name: '朱贵龙',
     title: '前端开发实习生',
     email: '2477687325@qq.com',
     location: '深圳市',
