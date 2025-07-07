@@ -2,7 +2,6 @@ import { ref } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useUserStore = defineStore('user', () => {
-  // 用户信息数据
   const userInfo = ref({
     name: '朱贵龙',
     title: '前端开发实习生',
@@ -13,7 +12,7 @@ export const useUserStore = defineStore('user', () => {
     avatar: '/images/avatar.jpeg'
   })
 
-  // 更新用户信息的方法
+  // 使用展开运算符合并新旧数据
   const updateUserInfo = (newInfo: any) => {
     userInfo.value = { ...userInfo.value, ...newInfo }
   }

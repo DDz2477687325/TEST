@@ -101,6 +101,7 @@ import { useProjectsStore } from '@/stores/projects'
 const userStore = useUserStore()
 const projectsStore = useProjectsStore()
 
+// storeToRefs 保持响应式，直接解构会失去响应性
 const { userInfo } = storeToRefs(userStore)
 const { featuredProjects } = storeToRefs(projectsStore)
 
@@ -112,9 +113,8 @@ const openProject = (project) => {
   }
 }
 
-// 处理图片加载失败
+// 图片加载失败时显示备用图片
 const handleImageError = (event) => {
-  // 如果图片加载失败，使用备用图片
   event.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDMwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjMUExQTFBIi8+Cjx0ZXh0IHg9IjE1MCIgeT0iMTUwIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iNDAiIGZpbGw9IiMwMEZGNDEiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGR5PSIuM2VtIj7imqE8L3RleHQ+Cjwvc3ZnPgo='
 }
 </script>
@@ -138,6 +138,7 @@ const handleImageError = (event) => {
   padding: 2rem 0;
 }
 
+/* Grid布局：左文字右头像 */
 .hero-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -160,6 +161,7 @@ const handleImageError = (event) => {
   font-weight: 400;
 }
 
+/* 姓名发光动画效果 */
 .name {
   display: block;
   color: var(--tech-green);
@@ -190,7 +192,7 @@ const handleImageError = (event) => {
   gap: 1rem;
 }
 
-/* 头像 */
+/* 头像区域样式 */
 .avatar-container {
   position: relative;
   width: 300px;
@@ -208,6 +210,7 @@ const handleImageError = (event) => {
   z-index: 2;
 }
 
+/* 头像发光效果 */
 .avatar-glow {
   position: absolute;
   top: -10px;
@@ -220,12 +223,19 @@ const handleImageError = (event) => {
   z-index: 1;
 }
 
+/* 头像脉冲动画 */
 @keyframes avatarPulse {
-  0%, 100% { transform: scale(1); opacity: 0.7; }
-  50% { transform: scale(1.1); opacity: 1; }
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 1;
+  }
 }
 
-/* 按钮 */
+/* 通用按钮样式 */
 .btn {
   display: inline-flex;
   align-items: center;
@@ -241,6 +251,7 @@ const handleImageError = (event) => {
   overflow: hidden;
 }
 
+/* 按钮的滑动填充效果 */
 .btn::before {
   content: '';
   position: absolute;
@@ -258,6 +269,7 @@ const handleImageError = (event) => {
   box-shadow: 0 0 15px var(--tech-green-glow);
 }
 
+/* 悬停时，滑动填充效果 */
 .btn:hover::before {
   left: 0;
 }
