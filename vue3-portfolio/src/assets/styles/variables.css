@@ -1,0 +1,20 @@
+:root {
+  /* 科技绿色系 */
+  --tech-green: #00FF41;
+  --tech-green-light: #44FF44;
+  --tech-green-dark: #00CC33;
+  --tech-green-glow: rgba(0, 255, 65, 0.5);
+
+  /* 背景色系 */
+  --tech-black: #0D0D0D;
+  --tech-dark: #1A1A1A;
+  --tech-card: #1E1E1E;
+
+  /* 文字色系 */
+  --tech-text-primary: #FFFFFF;
+  --tech-text-secondary: #CCCCCC;
+  --tech-text-muted: #888888;
+
+  /* 边框 */
+  --tech-border: #333333;
+}
